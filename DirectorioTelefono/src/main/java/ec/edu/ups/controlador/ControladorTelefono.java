@@ -5,10 +5,41 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.dao.TelefonoDAO;
+import ec.edu.ups.modelo.Telefono;
+import java.util.List;
+
 /**
  *
  * @author xpacheco
  */
 public class ControladorTelefono {
     
+    
+    private TelefonoDAO telefonoDAO;
+    private Telefono telefono;
+    
+    
+    //Constructores
+    public ControladorTelefono() {
+        
+    }
+    
+     public ControladorTelefono(TelefonoDAO telefonoDao) {
+        this.telefonoDAO=telefonoDao;
+    }
+     
+     
+    //metodo crearTelefono
+    public void crearTelefono(Telefono telf) {
+        telefono = telf;
+        telefonoDAO.create(telefono);
+    }
+    
+    
+    //metodo verTelefonos
+    public List<Telefono> verTelefonos() {
+        
+        return telefonoDAO.ListaTelefonos();
+    }
 }
